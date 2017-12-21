@@ -1,0 +1,18 @@
+<fieldset>
+  <h3>Search: <input type="text" name="searchString" [(ngModel)]="searchString" (keyup)="searchScore()"></h3>
+  <div class="box">
+    <fieldset *ngFor="let listing of shownListings" class="listing">
+      <img src="{{listing.imageURL}}">
+      <div id="titleDesc">
+        <h1>{{listing.title}}</h1>
+        <p id="description">{{listing.description}}</p>
+      </div>
+      <div id="priceLoc">
+        <h1 id="price">${{listing.price}}</h1>
+        <h3>{{listing.location}}</h3>
+        <button *ngIf="listing._user != userId" (click)="contact(listing._user)" class="contact">Contact</button>
+        <button *ngIf="listing._user == userId" (click)="deleteBike(listing._id)" class="delete">Delete</button>
+      </div>
+    </fieldset>
+  </div>
+</fieldset>

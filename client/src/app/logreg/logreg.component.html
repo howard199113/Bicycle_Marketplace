@@ -1,0 +1,39 @@
+<h1>Bicycle Marketplace</h1>
+<h2>Bike of the Day!</h2>
+<fieldset *ngFor="let Bike of randomBike">
+  <img src="{{Bike.imageURL}}">
+  <div id="titleDesc">
+    <h1>{{Bike.title}}</h1>
+    <p id="description">{{Bike.description}}</p>
+  </div>
+  <div id="priceLoc">
+    <h1 id="price">${{Bike.price}}</h1>
+    <h3>{{Bike.location}}</h3>
+  </div>
+</fieldset>
+
+<div>
+  <fieldset class="login">
+    <form (submit)="login()" #logForm="ngForm">
+      <h4>*Email: <input type="text" name="email" [(ngModel)]="loginInfo.email" required></h4>
+      <h4>*Password: <input type="password" name="password" [(ngModel)]="loginInfo.password" #logpassword="ngModel" required minlength=8></h4>
+      <p *ngIf="logpassword.invalid && logpassword.dirty">Password minimum of 8 characters</p>
+      <p *ngIf="logMessage">{{logMessage.message}}</p>
+      <input type="submit" value="Login" [disabled]="logForm.invalid">
+    </form>
+  </fieldset>
+
+  <fieldset>
+    <form (submit)="register()" #regForm="ngForm">
+      <h4>*First Name: <input type="text" name="first_name" [(ngModel)]="newUser.first_name" required></h4>
+      <h4>*Last Name: <input type="text" name="last_name" [(ngModel)]="newUser.last_name" required></h4>
+      <h4>*Email: <input type="text" name="email" [(ngModel)]="newUser.email" required></h4>
+      <h4>*Password: <input type="password" name="password" [(ngModel)]="newUser.password" #password="ngModel" required minlength=8></h4>
+      <p *ngIf="password.invalid && password.dirty">Password minimum of 8 characters</p>
+      <h4>*Password Confirmation: <input type="password" name="confirm_password" [(ngModel)]="newUser.confirm_password" required minlength=8></h4>
+      <input type="submit" value="Register" [disabled]="regForm.invalid">
+      <p *ngIf="PassError">{{PassError.message}}</p>
+      <p *ngIf="takenEmail">{{takenEmail.message}}</p>
+    </form>
+  </fieldset>
+</div>

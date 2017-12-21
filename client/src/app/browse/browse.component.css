@@ -1,0 +1,75 @@
+#description{
+  display: inline-block;
+}
+
+#price{
+  display: inline-block;
+}
+
+#titleDesc{
+  vertical-align: top;
+  display: inline-block;
+  width: 332px;
+  height:210px;
+}
+
+#priceLoc{
+  display: inline-block;
+  vertical-align: top;
+  width: 150px;
+}
+
+img{
+  width:200px;
+  height:150px;
+}
+
+.contact{
+  border: 1px solid black;
+  background-color: yellow;
+  cursor: pointer;
+  font-size: 20px;
+  width: 80px;
+  height: 50px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.contact:hover {background-color: #ffff007d}
+
+.contact:active {
+  background-color: #ffff007d;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.delete{
+  border: 1px solid black;
+  background-color: red;
+  cursor: pointer;
+  font-size: 20px;
+  width: 80px;
+  height: 50px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.delete:hover {background-color: #ff0000bf}
+
+.delete:active {
+  background-color: #ff0000bf;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.box{
+  width: 740px;
+  height: 1200px;
+  border: 1px groove;
+  overflow: scroll;
+}
+
+.listing{
+  width:700px;
+  height:220px;
+}
