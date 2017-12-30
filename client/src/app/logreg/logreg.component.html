@@ -1,3 +1,6 @@
+<head>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 <h1>Bicycle Marketplace</h1>
 <h2>Bike of the Day!</h2>
 <fieldset *ngFor="let Bike of randomBike">
@@ -15,7 +18,7 @@
 <div>
   <fieldset class="login">
     <form (submit)="login()" #logForm="ngForm">
-      <h4>*Email: <input type="text" name="email" [(ngModel)]="loginInfo.email" required></h4>
+      <h4 class="form-group">*Email: <input type="text" name="email" [(ngModel)]="loginInfo.email" required></h4>
       <h4>*Password: <input type="password" name="password" [(ngModel)]="loginInfo.password" #logpassword="ngModel" required minlength=8></h4>
       <p *ngIf="logpassword.invalid && logpassword.dirty">Password minimum of 8 characters</p>
       <p *ngIf="logMessage">{{logMessage.message}}</p>

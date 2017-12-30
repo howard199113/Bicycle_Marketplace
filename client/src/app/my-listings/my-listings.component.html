@@ -1,23 +1,26 @@
 <fieldset>
   <h2>Create Listing</h2>
   <fieldset>
-    <form (submit)="create()">
+    <form (submit)="create()" #createForm="ngForm">
       <div class="imgUpload">
-        <p>Image URL: <input type="text" name="imageURL" [(ngModel)]="createInfo.imageURL"></p>
-        <img src="https://assets.academy.com/mgen/56/10505656.jpg" width="180" height="150">
+        <p>*Image URL: <input type="text" name="imageURL" [(ngModel)]="createInfo.imageURL" #imageURL="ngModel" (keyup)="loadImage()"></p>
+        <span id="imageURL">
+          <img *ngIf="imageURL.dirty" src="{{createInfo.imageURL}}" width="180" height="150" required>
+        </span>
       </div>
       <div class="titleDesc">
-        <p>Title:</p>
-        <input type="text" name="title" [(ngModel)]="createInfo.title">
-        <p>Description:</p>
-        <textarea name="description" rows="6" cols="40" [(ngModel)]="createInfo.description"></textarea>
+        <p>*Title:</p>
+        <input type="text" name="title" [(ngModel)]="createInfo.title" required>
+        <p>*Description:</p>
+        <textarea name="description" rows="6" cols="40" [(ngModel)]="createInfo.description" required></textarea>
       </div>
       <div class="priceLocation">
-        <p>Price:</p>
-        $<input type="text" name="price" [(ngModel)]="createInfo.price">
-        <p>Location:</p>
-        <input class="location" type="text" name="location" [(ngModel)]="createInfo.location">
-        <button type="submit" class="create">Create</button>
+        <p>*Price:</p>
+        $<input type="text" name="price" [(ngModel)]="createInfo.price" required>
+        <p>*Location:</p>
+        <input class="location" type="text" name="location" [(ngModel)]="createInfo.location" required>
+        <button type="submit" class="create" [disabled]="createForm.invalid">Create</button>
+        <p>All *fields must be filled out</p>
       </div>
     </form>
   </fieldset>

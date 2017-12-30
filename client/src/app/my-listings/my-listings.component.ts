@@ -12,6 +12,7 @@ export class MyListingsComponent implements OnInit {
   createInfo: any = {imageURL:"", title:"", description:"", price:"", location:""};
   userId: string;
   currentBikes: any[];
+  imgURL: any;
 
   constructor(private _apiService:ApiService, private _router: Router) { }
 
@@ -79,6 +80,10 @@ export class MyListingsComponent implements OnInit {
     .catch((error)=>{
       console.log(error);
     })
+  }
+
+  loadImage(){
+    console.log('hit loadImage', this.createInfo.imageURL);
   }
 
 }
