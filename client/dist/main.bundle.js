@@ -422,7 +422,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Bicycle Marketplace</h1>\n<h3>Welcome, {{currentUser.first_name}}~</h3>\n<a [routerLink]=\"['browse']\">Browse</a> | <a [routerLink]=\"['my-list']\">My Listings</a> | <a href=\"\" (click)=\"logOut()\">Log Off</a>\n<router-outlet></router-outlet>\n"
+module.exports = "<h1>Bicycle Marketplace</h1>\n<h3>***Welcome, {{currentUser.first_name}}~</h3>\n<a [routerLink]=\"['browse']\">Browse</a> | <a [routerLink]=\"['my-list']\">My Listings</a> | <a href=\"\" (click)=\"logOut()\">Log Off</a>\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
