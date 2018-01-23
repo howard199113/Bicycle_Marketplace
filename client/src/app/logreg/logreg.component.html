@@ -1,42 +1,75 @@
-<head>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<h1>Bicycle Marketplace</h1>
-<h2>Bike of the Day!</h2>
-<fieldset *ngFor="let Bike of randomBike">
-  <img src="{{Bike.imageURL}}">
-  <div id="titleDesc">
-    <h1>{{Bike.title}}</h1>
-    <p id="description">{{Bike.description}}</p>
+<body>
+  <div *ngFor="let Bike of randomBike" class="container">
+    <img src="{{Bike.imageURL}}">
+    <div id="titleDesc">
+      <h1>{{Bike.title}}</h1>
+      <p id="description">{{Bike.description}}</p>
+    </div>
+    <div id="priceLoc">
+      <h1 id="price">${{Bike.price}}</h1>
+      <h3>{{Bike.location}}</h3>
+    </div>
   </div>
-  <div id="priceLoc">
-    <h1 id="price">${{Bike.price}}</h1>
-    <h3>{{Bike.location}}</h3>
+
+  <div class="form">
+    <div class="login">
+      <form (submit)="login()" #logForm="ngForm" class="form-horizontal">
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="email">*Email:</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="email" [(ngModel)]="loginInfo.email" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="password">*Password:</label>
+          <div class="col-sm-8">
+            <input type="password" class="form-control" name="password" [(ngModel)]="loginInfo.password" #logpassword="ngModel" required minlength=8>
+          </div>
+          <p *ngIf="logpassword.invalid && logpassword.dirty">Password minimum of 8 characters</p>
+          <p *ngIf="logMessage">{{logMessage.message}}</p>
+        </div>
+        <input type="submit" value="Login" [disabled]="logForm.invalid">
+      </form>
+    </div>
+
+    <div class="registration">
+      <form (submit)="register()" #regForm="ngForm" class="form-horizontal">
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="first_name">*First Name:</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="first_name" [(ngModel)]="newUser.first_name" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="last_name">*Last Name:</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="last_name" [(ngModel)]="newUser.last_name" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="email">*Email:</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" name="email" [(ngModel)]="newUser.email" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="password">*Password:</label>
+          <div class="col-sm-8">
+            <input type="password" class="form-control" name="password" [(ngModel)]="newUser.password" #password="ngModel" required minlength=8>
+          </div>
+        </div>
+        <p *ngIf="password.invalid && password.dirty">Password minimum of 8 characters</p>
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="confirm_password">*Password Confirmation:</label>
+          <div class="col-sm-8">
+            <input type="password" class="form-control" name="confirm_password" [(ngModel)]="newUser.confirm_password" required minlength=8>
+          </div>
+        </div>
+        <input type="submit" value="Register" [disabled]="regForm.invalid">
+        <p *ngIf="PassError">{{PassError.message}}</p>
+        <p *ngIf="takenEmail">{{takenEmail.message}}</p>
+      </form>
+    </div>
   </div>
-</fieldset>
 
-<div>
-  <fieldset class="login">
-    <form (submit)="login()" #logForm="ngForm">
-      <h4 class="form-group">*Email: <input type="text" name="email" [(ngModel)]="loginInfo.email" required></h4>
-      <h4>*Password: <input type="password" name="password" [(ngModel)]="loginInfo.password" #logpassword="ngModel" required minlength=8></h4>
-      <p *ngIf="logpassword.invalid && logpassword.dirty">Password minimum of 8 characters</p>
-      <p *ngIf="logMessage">{{logMessage.message}}</p>
-      <input type="submit" value="Login" [disabled]="logForm.invalid">
-    </form>
-  </fieldset>
-
-  <fieldset>
-    <form (submit)="register()" #regForm="ngForm">
-      <h4>*First Name: <input type="text" name="first_name" [(ngModel)]="newUser.first_name" required></h4>
-      <h4>*Last Name: <input type="text" name="last_name" [(ngModel)]="newUser.last_name" required></h4>
-      <h4>*Email: <input type="text" name="email" [(ngModel)]="newUser.email" required></h4>
-      <h4>*Password: <input type="password" name="password" [(ngModel)]="newUser.password" #password="ngModel" required minlength=8></h4>
-      <p *ngIf="password.invalid && password.dirty">Password minimum of 8 characters</p>
-      <h4>*Password Confirmation: <input type="password" name="confirm_password" [(ngModel)]="newUser.confirm_password" required minlength=8></h4>
-      <input type="submit" value="Register" [disabled]="regForm.invalid">
-      <p *ngIf="PassError">{{PassError.message}}</p>
-      <p *ngIf="takenEmail">{{takenEmail.message}}</p>
-    </form>
-  </fieldset>
-</div>
+</body>

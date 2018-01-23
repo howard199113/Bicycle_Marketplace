@@ -30,7 +30,7 @@ export class LogregComponent implements OnInit {
       .then((data)=>{
         if(data == true){
           console.log(data);
-          this._router.navigate(['/home']);
+          this._router.navigate(['/home/browse']);
         }else{
           console.log(data);
           this.takenEmail.message = data;
@@ -48,7 +48,7 @@ export class LogregComponent implements OnInit {
     .then((data)=>{
       if(data == true){
         console.log(data);
-        this._router.navigate(['/home']);
+        this._router.navigate(['/home/browse']);
       }else{
         console.log(data);
         this.logMessage.message = data;

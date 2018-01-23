@@ -1,53 +1,55 @@
-<fieldset>
-  <h2>Create Listing</h2>
-  <fieldset>
-    <form (submit)="create()" #createForm="ngForm">
-      <div class="imgUpload">
-        <p>*Image URL: <input type="text" name="imageURL" [(ngModel)]="createInfo.imageURL" #imageURL="ngModel" (keyup)="loadImage()"></p>
-        <span id="imageURL">
-          <img *ngIf="imageURL.dirty" src="{{createInfo.imageURL}}" width="180" height="150" required>
-        </span>
-      </div>
-      <div class="titleDesc">
-        <p>*Title:</p>
-        <input type="text" name="title" [(ngModel)]="createInfo.title" required>
-        <p>*Description:</p>
-        <textarea name="description" rows="6" cols="40" [(ngModel)]="createInfo.description" required></textarea>
-      </div>
-      <div class="priceLocation">
-        <p>*Price:</p>
-        $<input type="text" name="price" [(ngModel)]="createInfo.price" required>
-        <p>*Location:</p>
-        <input class="location" type="text" name="location" [(ngModel)]="createInfo.location" required>
-        <button type="submit" class="create" [disabled]="createForm.invalid">Create</button>
-        <p>All *fields must be filled out</p>
-      </div>
-    </form>
-  </fieldset>
-</fieldset>
-<fieldset>
-  <h2>Edit/Delete Listings</h2>
-  <fieldset *ngFor="let currentBike of currentBikes; let idx = index">
-    <form (submit)="update(idx)">
-      <div class="imgUpload">
-        <p>Image URL: <input type="text" value={{currentBike.imageURL}} name="imageURL" [(ngModel)]="currentBike.imageURL"></p>
-        <img src="{{currentBike.imageURL}}" width="180" height="150">
-      </div>
-      <div class="titleDesc">
-        <p>Title:</p>
-        <input type="text" value={{currentBike.title}} name="title" [(ngModel)]="currentBike.title">
-        <p>Description:</p>
-        <textarea name="description" value={{currentBike.description}} rows="6" cols="40" [(ngModel)]="currentBike.description"></textarea>
-      </div>
-      <div class="priceLocation">
-        <p>Price:</p>
-        $<input type="text" value={{currentBike.price}} name="price" [(ngModel)]="currentBike.price">
-        <p>Location:</p>
-        <input class="location" value={{currentBike.location}} type="text" name="location" [(ngModel)]="currentBike.location">
-        <!-- <button type="submit" class="update">Update</button> -->
-        <input type="submit" class="update" value="Update">
-        <button class="delete" type="button" (click)="deleteBike(currentBike._id)">Delete</button>
-      </div>
-    </form>
-  </fieldset>
-</fieldset>
+<body>
+  <div id="createListing">
+    <h2>Create Listing</h2>
+    <div>
+      <form (submit)="create()" #createForm="ngForm">
+        <div class="imgUpload">
+          <p>*Image URL:</p>
+          <input type="text" name="imageURL" [(ngModel)]="createInfo.imageURL" #imageURL="ngModel" (keyup)="loadImage()">
+          <img *ngIf="imageURL.dirty" src="{{createInfo.imageURL}}" required id="imageURL">
+        </div>
+        <div class="titleDesc">
+          <p>*Title:</p>
+          <input type="text" name="title" [(ngModel)]="createInfo.title" required class="titleDescInput">
+          <p>*Description:</p>
+          <textarea name="description" rows="6" cols="40" [(ngModel)]="createInfo.description" required class="titleDescInput"></textarea>
+        </div>
+        <div class="priceLocation">
+          <p>*Price:</p>
+          <p>$<input type="text" name="price" [(ngModel)]="createInfo.price" required id="price"></p>
+          <p id="location">*Location:</p>
+          <p><input type="text" name="location" [(ngModel)]="createInfo.location" required id="locationInput"></p>
+          <button type="submit" class="create" [disabled]="createForm.invalid">Create</button>
+          <p id="warning">All *fields must be filled out</p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="createListing">
+    <h2>Edit/Delete Listings</h2>
+    <div *ngFor="let currentBike of currentBikes; let idx = index">
+      <form (submit)="update(idx)">
+        <div class="imgUpload">
+          <p>Image URL:</p>
+          <input type="text" value={{currentBike.imageURL}} name="imageURL" [(ngModel)]="currentBike.imageURL">
+          <img src="{{currentBike.imageURL}}" id="imageURL">
+        </div>
+        <div class="titleDesc">
+          <p>Title:</p>
+          <input type="text" value={{currentBike.title}} name="title" [(ngModel)]="currentBike.title">
+          <p>Description:</p>
+          <textarea name="description" value={{currentBike.description}} rows="6" cols="40" [(ngModel)]="currentBike.description"></textarea>
+        </div>
+        <div class="priceLocation">
+          <p>Price:</p>
+          $<input type="text" value={{currentBike.price}} name="price" [(ngModel)]="currentBike.price">
+          <p id="location">Location:</p>
+          <input id="locationInput" value={{currentBike.location}} type="text" name="location" [(ngModel)]="currentBike.location">
+          <input type="submit" class="update" value="Update">
+          <button class="delete" type="button" (click)="deleteBike(currentBike._id)">Delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>

@@ -1,26 +1,29 @@
 .imgUpload{
   display: inline-block;
+  vertical-align: top;
+  width: 170px;
+  text-align: left;
 }
 .titleDesc{
   display: inline-block;
+  text-align: left;
 }
 .priceLocation{
   vertical-align: top;
   display: inline-block;
   width:183px;
+  text-align: left;
 }
-.location{
-  display: block;
-}
+
 .create{
   border: 1px solid black;
   background-color: green;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 15px;
   width: 80px;
-  height: 50px;
-  margin-top: 10px;
-  margin-left: 20px;
+  height:25px;
+  margin-top: 25px;
+  margin-left: 8px;
 }
 
 .create:hover {background-color: #3e8e41}
@@ -31,10 +34,6 @@
   transform: translateY(4px);
 }
 
-p{
-  height: 5px;
-}
-
 .update{
   display: inline-block;
   border: 1px solid black;
@@ -42,9 +41,9 @@ p{
   cursor: pointer;
   font-size: 15px;
   width: 80px;
-  height: 20px;
+  height: 25px;
   margin-top: 10px;
-  margin-left: 20px;
+  margin-left: 13px;
 }
 
 .update:hover {background-color: #ffff004f}
@@ -62,9 +61,9 @@ p{
   cursor: pointer;
   font-size: 15px;
   width: 80px;
-  height: 20px;
+  height: 25px;
   margin-top: 10px;
-  margin-left: 20px;
+  margin-left: 13px;
 }
 
 .delete:hover {background-color: #ff0000a3}
@@ -77,7 +76,43 @@ p{
 
 #imageURL{
   border: 1px solid black;
-  width:180px;
-  height: 150px;
+  width:150px;
+  height: 126px;
   display: inline-block;
+  margin-top: 23px;
+}
+p{
+  height: 13px;
+}
+
+#createListing{
+  text-align: center;
+}
+
+.titleDescInput{
+  margin-top:  ;
+}
+
+.priceLocationInput{
+  margin-top: ;
+}
+#price{
+  margin-top: ;
+}
+#location{
+  margin-top: 16px;
+}
+#locationInput{
+  margin-left: 7px;
+}
+#warning{
+  font-size: 11px;
+  color: red;
+  margin-top: 32px;
+  margin-left: 10px;
+}
+
+.url{
+  margin-bottom: 36px;
+  margin-right: 22px;
 }
